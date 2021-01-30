@@ -12,15 +12,17 @@
         <div class="row">
             <div class="form-group col-md-6">
                 <label for="lblFname">First Name</label>
-                <span class="text-danger" id="spanFname">*  Enter UserName</span>
-                <span class="text-success" id="spanFname">Name Validated</span>
+                <span class="text-danger" id="spanFname"></span>
                 <input type="text" id="txtFname" class="form-control" placeholder="First Name" />
             </div>
+
             <div class="form-group col-md-6">
                 <label for="lblLname">Last Name</label>
+                <span class="text-danger" id="spanLname"></span>
                 <input type="text" id="txtLname" class="form-control" placeholder="Last Name" />
             </div>
         </div>
+
         <div class="row mt-2">
             <div class="form-group">
                 <label for="lblAddress">Address</label>
@@ -66,32 +68,69 @@
     $(document).ready(function () {
         // Validate();
 
-        // Validate Username
+
+
+        // Validate FirstName
         $('#spanFname').hide();
         let isfirstname = true;
         $('#txtFname').keyup(function () {
             //console.log('keyup');
-            validateUsername();
+            validateFirstname();
         });
 
-        function validateUsername() {
-            let usernameValue = $('#txtFname').val();
-            if (usernameValue.length == '') {
+        function validateFirstname()
+        {
+            let firstnameValue = $('#txtFname').val();
+            if (firstnameValue.length == '') {
                 $('#spanFname').show();
+                $('#spanFname').html('Firstname cannot be empty');
+
                 isfirstname = false;
                 return false;
             }
-            else if ((usernameValue.length < 2)) {
+            else if ((firstnameValue.length < 2))
+            {
                 $('#spanFname').show();
-                $('#spanFname').html('*length of username should be greater than 2');
+                $('#spanFname').html('Firstname is very short');
                 isfirstname = false;
                 return false;
             }
-            else {
+            else
+            {
                 $('#spanFname').hide();
 
             }
         }
+
+        //Validate LastName
+        $('#spanLname').hide();
+        let islastname = true;
+        $('#txtLname').keyup(function () {
+            validateLastName();
+        })
+
+        function validateLastName() {
+            let lastnameValue = $('#txtLname').val();
+            if (lastnameValue.length == '') {
+                $('#spanLname').show();
+                $('#spanLname').html('Lastname cannot be empty');
+
+                islastname = false;
+                return false;
+            }
+            else if ((lastnameValue.length < 2)) {
+                $('#spanLname').show();
+                $('#spanLname').html('Lastname is very short');
+
+                islastname = false;
+                return false;
+            }
+            else {
+                $('#spanLname').hide();
+            }
+        }
+
+
     })
 
     function Validate() {
