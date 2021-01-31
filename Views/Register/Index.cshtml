@@ -10,12 +10,14 @@
 
     <div id="formdetails">
         <div class="row">
+            @* First Name *@
             <div class="form-group col-md-6">
                 <label for="lblFname">First Name</label>
                 <span class="text-danger" id="spanFname"></span>
                 <input type="text" id="txtFname" class="form-control" placeholder="First Name" />
             </div>
 
+            @* Last Name *@
             <div class="form-group col-md-6">
                 <label for="lblLname">Last Name</label>
                 <span class="text-danger" id="spanLname"></span>
@@ -23,26 +25,39 @@
             </div>
         </div>
 
+        @* Address *@
         <div class="row mt-2">
             <div class="form-group">
                 <label for="lblAddress">Address</label>
+                <span class="text-danger" id="spanAddress"></span>
                 <input type="text" id="txtAddress" class="form-control" placeholder="Address" />
             </div>
         </div>
+
+        @* Age *@
         <div class="row mt-2">
             <div class="form-group col-sm-4">
                 <label for="lblAge">Age</label>
+                <span class="text-danger" id="spanAge"></span>
                 <input type="text" id="txtAge" class="form-control" placeholder="Age" />
             </div>
+
+            @* Phone Number *@
             <div class="form-group col-sm-4">
                 <label for="lblMobile">Mobile Number</label>
+                <span class="text-danger" id="spanMobileN"></span>
                 <input type="tel" id="txtMobile" class="form-control" placeholder="Mobile Number" />
             </div>
+
+            @* Email Id *@
             <div class="form-group col-sm-4">
                 <label for="lblEmail">Email Id</label>
+                <span class="text-danger" id="spanEmail"></span>
                 <input type="email" id="txtEmail" class="form-control" placeholder="Email Id" />
             </div>
         </div>
+
+        @* Qualification *@
         <div class="row">
             <div class="form-group">
                 <label for="lblQualification">Qualification</label>
@@ -63,16 +78,19 @@
 
 </div>
 
+    <div id="displayData">
+        <table id="info">
+        </table>
+    </div>
 
 <script>
     $(document).ready(function () {
-        // Validate();
+         Validate();
 
 
 
         // Validate FirstName
         $('#spanFname').hide();
-        let isfirstname = true;
         $('#txtFname').keyup(function () {
             //console.log('keyup');
             validateFirstname();
@@ -84,16 +102,11 @@
             if (firstnameValue.length == '') {
                 $('#spanFname').show();
                 $('#spanFname').html('Firstname cannot be empty');
-
-                isfirstname = false;
-                return false;
             }
             else if ((firstnameValue.length < 2))
             {
                 $('#spanFname').show();
                 $('#spanFname').html('Firstname is very short');
-                isfirstname = false;
-                return false;
             }
             else
             {
@@ -104,7 +117,6 @@
 
         //Validate LastName
         $('#spanLname').hide();
-        let islastname = true;
         $('#txtLname').keyup(function () {
             validateLastName();
         })
@@ -114,21 +126,95 @@
             if (lastnameValue.length == '') {
                 $('#spanLname').show();
                 $('#spanLname').html('Lastname cannot be empty');
-
-                islastname = false;
-                return false;
             }
             else if ((lastnameValue.length < 2)) {
                 $('#spanLname').show();
                 $('#spanLname').html('Lastname is very short');
-
-                islastname = false;
-                return false;
             }
             else {
                 $('#spanLname').hide();
             }
         }
+
+        // Validate Address
+        $('#spanAddress').hide();
+        $('#txtAddress').keyup(function () {
+            validateAddress();
+        })
+
+        function validateAddress() {
+            let addressValue = $('#txtAddress').val();
+            if (addressValue.length == '') {
+                $('#spanAddress').show();
+                $('#spanAddress').html('Address cannot be empty');
+            }
+            else if ((addressValue.length < 2)) {
+                $('#spanAddress').show();
+                $('#spanAddress').html('Address is very short');
+            }
+            else {
+                $('#spanAddress').hide();
+            }
+        }
+
+        // Validate Age
+        $('#spanAge').hide();
+        $('#txtAge').keyup(function () {
+            validateAge();
+        })
+
+        function validateAge() {
+            let ageValue =  $('#txtAge').val();
+
+            if (ageValue.length == '') {
+                $('#spanAge').show();
+                $('#spanAge').html('Age cannot be empty');
+            }
+            else if ((ageValue.length < 1 || ageValue.length > 2)) {
+                $('#spanAge').show();
+                $('#spanAge').html('Age should be between 1-99');
+            }
+            else {
+                $('#spanAge').hide();
+            }
+        }
+
+        // Validate Mobile Number
+        $('#spanMobileN').hide();
+        $('#txtMobile').keyup(function () {
+            validateMobileNumber();
+        })
+
+        function validateMobileNumber() {
+            let mobileNumber = $('#txtMobile').val();
+            if (mobileNumber.length == '') {
+                $('#spanMobileN').show();
+                $('#spanMobileN').html('Mobile number cannot be empty');
+            }
+            else if ((mobileNumber.length < 3 || mobileNumber.length > 10)) {
+                $('#spanMobileN').show();
+                $('#spanMobileN').html('Mobile number should of 10 digits');
+            }
+            else {
+                $('#spanMobileN').hide();
+            }
+        }
+
+        // Validate Email
+        $('#spanEmail').hide();
+        $('#txtEmail').keyup(function () {
+            let email = $('#txtEmail').val();
+            if (email.length == '') {
+                $('#spanEmail').show();
+                $('#spanEmail').html('Email cannot be empty');
+            }
+            //else if () {
+
+            //}
+            else {
+                $('#spanEmail').hide();
+            }
+        })
 
 
     })
