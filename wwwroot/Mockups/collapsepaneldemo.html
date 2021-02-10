@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Collpase Panel</title>
+</head>
+<body>
+    <div id="divRegisterList" class="panel panel-default">
+        <div class="panel-heading ui-draggable-handle">
+            <h3 class="panel-title">Registration</h3>
+            <div style="text-align:right;">
+
+                <button id="btnNew" class="btn btn-success" onclick="ShowDiv()"> New</button>
+
+
+            </div>
+        </div>
+        <div class="panel-body">
+
+
+
+            <table id="tblIndexEntery" class="table table-bordered table-striped dataTable">
+                <thead>
+                    <tr>
+
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Address</th>
+                        <th>Date Of Birth</th>
+                        <th>Age</th>
+                        <th>Mobile No</th>
+                        <th>Email Id</th>
+                        <th>Qualification</th>
+                        <th class="nosort">Action</th>
+
+
+                    </tr>
+                </thead>
+
+                <tbody id="tBodyIndexEntry"></tbody>
+
+
+            </table>
+
+        </div>
+    </div>
+
+    <div id="divRegisterentry" class="panel panel-default needs-validation" style="display:none">
+
+
+        <h3 class="panel-title">Register Entry</h3>
+        <div style="text-align:right;">
+            <input type="hidden" value="0" id="hdnId" />
+
+
+            <button type="button" class="btn btn-success" id="btnAdd" onClick="myFunction()" value="Save"> Save</button>
+
+            <button type="button" class="btn btn-danger" onClick="Cancel()">Cancel</button>
+
+        </div>
+
+        <!-- /.box-header -->
+
+        <div class="row">
+            <div class="col-md-12">
+
+
+                <div class="form-inline">
+                    <div class="col-md-2">
+                        First Name:
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="txtFirstname" placeholder="Enter First Name">
+                        <span id="fname" style="color:red;"></span>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        Last Name:
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="txtLastname" placeholder="Enter Last Name">
+                        <span id="lname" style="color:red;"></span>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="form-inline">
+                    <div class="col-md-2">
+                        Date Of Birth:
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="txtDateofbirth" placeholder="Enter Date Of Birth">
+                        <span id="date" style="color:red;"></span>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        Age:
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="txtAge" placeholder="Enter Age">
+                        <span id="age" style="color:red;"></span>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="form-inline">
+                    <div class="col-md-2">
+                        Email Id:
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="txtDateofbirth" placeholder="Enter Email Id">
+                        <span id="email" style="color:red;"></span>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        Mobile:
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" id="txtMobileno" placeholder="Enter Mobile No">
+                        <span id="mobile" style="color:red;"></span>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+
+                <div class="form-inline">
+                    <div class="col-md-2">
+                        Qualification:
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-control" id="ddlQualification">
+                            <option value="1">BSC</option>
+                            <option value="2">BSC-IT</option>
+                            <option value="3">MCA</option>
+                            <option value="4">MBA</option>
+                        </select>
+
+
+                    </div>
+
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2">
+                        Address:
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="txtAddress" placeholder="Enter Address">
+                        <span id="address" style="color:red;"></span>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>
