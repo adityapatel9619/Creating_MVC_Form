@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
 
+
 namespace MVC_Form_Intern_Aditya.DB
 {
     public class DBRegistration
